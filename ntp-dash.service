@@ -1,0 +1,21 @@
+[Unit]
+Description=NTP Dashboard TFT Graph
+After=network.target gpsd.service
+
+[Service]
+# Adjust these paths if your script or env is named differently
+ExecStart=/home/pi/lcd-env/bin/python3 -u /home/pi/multipage_1.0.py
+WorkingDirectory=/home/pi
+StandardOutput=inherit
+StandardError=inherit
+Restart=always
+RestartSec=5
+User=damien
+
+[Install]
+WantedBy=multi-user.target
+
+
+
+
+
