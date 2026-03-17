@@ -58,3 +58,8 @@ sudo apt install gpsd gpsd-clients chrony python3-pip python3-dev libffi-dev lib
 | Leg A | Pin 16 | GPIO 23 |
 | Leg B | Pin 14 | Ground |
 
+### Things to do
+1. Add STL file for 3D printed 1RU modular mount.  
+2. Web interface for changing colours and selecting details about pages to display - maybe  
+3. Change switch for rotary encoder - maybe
+
