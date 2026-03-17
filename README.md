@@ -16,27 +16,27 @@ My setup is using a Raspberry Pi 3B+, obviously the 284x76 ST7789  TFT LCD, and 
 Setup for the GPS module and chrony are as in https://github.com/domschl/RaspberryNtpServer
 
 
-Enable SPI:
+### Enable SPI:
 sudo raspi-config -> 3. Interface Options -> I4. SPI Enable
 
-I have used SPI1, as SPI0 was causing issues with the GPIO pin used for PPS sensing.  Changes to be made to /boot/firmware/config.txt:
->##Enable SPI1, set CS to pin 17
->dtparam=spi=on
->dtoverlay=spi1-1cs,cs0_pin=17
->##Disable video (we are running headless!)
->#dtoverlay=vc4-kms-v3d
->max_framebuffers=0
->##Disable Bluetooth/WiFi (we are connected via ethernet)
->dtoverlay=disable-wifi
->dtoverlay=disable-bt
->enable_uart=1
->##Permanent PPS Lock (didn't really work, hence why we are using SPI1)
->gpio=4=ip,pud_off
->dtoverlay=pps-gpio,gpiopin=4
->##Disable HDMI/Video output to save power & reduce jitter
->hdmi_blanking=2
->force_turbo=1
+### I have used SPI1, as SPI0 was causing issues with the GPIO pin used for PPS sensing.  Changes to be made to /boot/firmware/config.txt:
+##Enable SPI1, set CS to pin 17
+dtparam=spi=on
+dtoverlay=spi1-1cs,cs0_pin=17
+##Disable video (we are running headless!)
+#dtoverlay=vc4-kms-v3d
+max_framebuffers=0
+##Disable Bluetooth/WiFi (we are connected via ethernet)
+dtoverlay=disable-wifi
+dtoverlay=disable-bt
+enable_uart=1
+##Permanent PPS Lock (didn't really work, hence why we are using SPI1)
+gpio=4=ip,pud_off
+dtoverlay=pps-gpio,gpiopin=4
+##Disable HDMI/Video output to save power & reduce jitter
+hdmi_blanking=2
+force_turbo=1
 
-Install required dependencies:
->sudo apt update
->sudo apt install gpsd gpsd-clients chrony python3-pip python3-dev libffi-dev libssl-dev libjpeg-dev zlib1g-dev i2c-tools -y
+### Install required dependencies:
+sudo apt update
+sudo apt install gpsd gpsd-clients chrony python3-pip python3-dev libffi-dev libssl-dev libjpeg-dev zlib1g-dev i2c-tools -y
