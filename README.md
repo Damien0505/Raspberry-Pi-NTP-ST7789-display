@@ -40,3 +40,18 @@ force_turbo=1
 ### Install required dependencies:
 sudo apt update
 sudo apt install gpsd gpsd-clients chrony python3-pip python3-dev libffi-dev libssl-dev libjpeg-dev zlib1g-dev i2c-tools -y
+
+### Wiring connections (display)
+Display Pin,Pi Physical Pin,BCM / Function
+VCC (3.3V),Pin 17,3.3V Power
+GND,Pin 20,Ground
+DC (Data/Cmd),Pin 15,GPIO 22
+RES (Reset),Pin 36,GPIO 27
+SDA (Data),Pin 38,GPIO 20 (SPI1 MOSI)
+SCL (Clock),Pin 40,GPIO 21 (SPI1 SCLK)
+BLK (Backlight),Pin 1,3.3V (Always On)
+
+### Wiring connections (momentary switch)
+Pushbutton,Pi Physical Pin,BCM / Function
+Leg A,Pin 16,GPIO 23
+Leg B,Pin 14,Ground
