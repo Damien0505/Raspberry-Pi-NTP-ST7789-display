@@ -1,7 +1,7 @@
 # Raspberry-Pi-NTP-ST7789-display
 A python script to display NTP data from chrony, GPS data, and system stats on a 284x76 ST7789  TFT LCD.
 
-This was inspired by Dominik Schlösser (https://github.com/domschl/RaspberryNtpServer) and his chronotron code for displaying Raspberry pi NTP server stats on a 20x4 LCD
+This was inspired by Dominik Schlösser (https://github.com/domschl/RaspberryNtpServer) and his chronotron code for displaying Raspberry pi NTP server stats on a 20x4 LCD.  Thank you to Dominik for his NTP server setup guidance, and his inspiration.
 
 As I wanted to rackmount my Pi in 1RU, the 20x4 LCD was too big.  Not being able to source a smaller 20x4 LCD my next option was a 284x76 TFT LCD display.
 These are cheaply available on AliExpress (https://www.aliexpress.com/item/1005008945269187.html) for a few dollars, and no doubt elsewhere.
@@ -12,7 +12,7 @@ Having a matrix display I thought why not add some extra data to be displayed, a
 4. 'chronyc sourcestats', this displays some data of 4 NTP sources stats
 5. System status, this displays load, RAM/Disk used, CPU temp and uptime.  On the right hadn side are 4 bars showing each CPU core load
 
-My setup is using a Raspberry Pi 3B+, obviously the 284x76 ST7789  TFT LCD, and a Neo M9N GPS module.
+My setup is using a Raspberry Pi 3B+, obviously the 284x76 ST7789  TFT LCD, and a Neo M9N GPS module and a momentary pushbutton switch.
 Setup for the GPS module and chrony are as in https://github.com/domschl/RaspberryNtpServer
 
 
@@ -57,3 +57,4 @@ sudo apt install gpsd gpsd-clients chrony python3-pip python3-dev libffi-dev lib
 | :--- | :--- | :--- |
 | Leg A | Pin 16 | GPIO 23 |
 | Leg B | Pin 14 | Ground |
+
