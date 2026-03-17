@@ -37,9 +37,9 @@ dtoverlay=pps-gpio,gpiopin=4
 hdmi_blanking=2  
 force_turbo=1  
 
-### Install required dependencies:
-sudo apt update
-sudo apt install gpsd gpsd-clients chrony python3-pip python3-dev libffi-dev libssl-dev libjpeg-dev zlib1g-dev i2c-tools -y
+### Install required dependencies:  
+gpsd gpsd-clients chrony python3-pip python3-dev libffi-dev libssl-dev libjpeg-dev zlib1g-dev i2c-tools -y
+(Some of these may need to be installed in a Python virtual environment, that is currently how I have this working.)
 
 ### Wiring connections (display)
 | Display Pin | Pi Physical Pin | BCM / Function |
