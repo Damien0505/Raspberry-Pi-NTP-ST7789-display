@@ -20,20 +20,20 @@ Enable SPI:
 sudo raspi-config -> 3. Interface Options -> I4. SPI Enable
 
 I have used SPI1, as SPI0 was causing issues with the GPIO pin used for PPS sensing.  Changes to be made to /boot/firmware/config.txt:
-># Enable SPI1, set CS to pin 17
+>##Enable SPI1, set CS to pin 17
 >dtparam=spi=on
 >dtoverlay=spi1-1cs,cs0_pin=17
-># Disable video (we are running headless!)
+>##Disable video (we are running headless!)
 >#dtoverlay=vc4-kms-v3d
 >max_framebuffers=0
-># Disable Bluetooth/WiFi (we are connected via ethernet)
+>##Disable Bluetooth/WiFi (we are connected via ethernet)
 >dtoverlay=disable-wifi
 >dtoverlay=disable-bt
 >enable_uart=1
-># Permanent PPS Lock (didn't really work, hence why we are using SPI1)
+>##Permanent PPS Lock (didn't really work, hence why we are using SPI1)
 >gpio=4=ip,pud_off
 >dtoverlay=pps-gpio,gpiopin=4
-># Disable HDMI/Video output to save power & reduce jitter
+>##Disable HDMI/Video output to save power & reduce jitter
 >hdmi_blanking=2
 >force_turbo=1
 
